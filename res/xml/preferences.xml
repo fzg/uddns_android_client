@@ -8,6 +8,11 @@
                         android:key="host"
                         android:defaultValue="android_device"
                         android:inputType="text" />
+		<CheckBoxPreference
+			android:title="Enable"
+			android:summary="Sets on or off the publishing"
+			android:key="enable"
+			android:defaultValue="false" />
 	</PreferenceCategory>
 	<PreferenceCategory 
 		android:title="@string/pref_serv_title"

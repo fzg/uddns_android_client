@@ -1,7 +1,10 @@
 package foo.bar.uddns;
 
+import android.app.PendingIntent;
+import android.preference.PreferenceManager;
 import foo.bar.uddns.R;
-
+import android.util.Log;
+import android.content.SharedPreferences;
 import android.view.View.BaseSavedState;
 import android.os.Parcelable;
 import android.os.Parcel;
@@ -21,15 +24,21 @@ import android.widget.Toast;
 import android.widget.EditText;
 import android.preference.EditTextPreference;
 
+import foo.bar.uddns.ConnexionHandler;
+
 public class SettingsActivity extends PreferenceActivity {
 	public EditTextPreference server, port, user, password, host;
 //	private Button applyButton;
 	private static final int REQUEST_CODE = 0;
+	private static String TAG = "Settings";
 
 	@Override
 	protected void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
                 addPreferencesFromResource(R.xml.preferences);
+//		PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
+		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+		prefs.registerOnSharedPreferenceChangeListener(spChanged);
 	}
         @Override
         protected void onActivityResult(final int requestCode, final int resultCode, final Intent data) {
@@ -42,6 +51,25 @@ public class SettingsActivity extends PreferenceActivity {
 			}
 		}
 	}
+	SharedPreferences.OnSharedPreferenceChangeListener spChanged = new
+                           SharedPreferences.OnSharedPreferenceChangeListener() {
+        @Override
+   	 public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
+               Log.w(TAG, "PREFERENCE CHANGED");
+//W/ActivityManager(  157): Unable to start service Intent { cmp=foo.bar.uddns/.ConnexionHandler }: not found
+                Intent intent = new Intent(getApplication(), foo.bar.uddns.ConnexionHandler.class);
+		if (key == "enable") {
+			boolean xtmp = true;
+			if ( sharedPreferences.getBoolean("enable", xtmp) == false) {
+				stopService(intent);
+			}
+		} else {
+			stopService(intent);
+			startService(intent);
+		}
+         }
+	};
+
 	private void handleApply() {
 		;
 	}

@@ -6,7 +6,11 @@
 
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 	<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+	<uses-permission android:name="android.permission.INTERNET"/> 
 	<uses-sdk android:minSdkVersion="10" />
+
+	<uses-library android:name="com.loopj.android.android-async-http"
+		android:required="true" />
 
 	<uses-feature
 		android:name="android.hardware.touchscreen"
@@ -21,8 +25,7 @@
 	<application android:label="uddns" 
 		android:icon="@drawable/ud">
 		<activity
-			android:name="foo.bar.uddns.SettingsActivity"
-			android:theme="@android:style/Theme.Holo" >
+			android:name="foo.bar.uddns.SettingsActivity">
 			<intent-filter>
 				<action android:name="android.intent.action.MAIN" />
 				<category android:name="android.intent.category.LAUNCHER" />
@@ -41,6 +44,11 @@
 					<category android:name="android.intent.category.DEFAULT" />
                                 </intent-filter>
 		</receiver>
+		<service android:name="foo.bar.uddns.ConnexionHandler" android:enabled="true">
+				<intent-filter>
+					<action android:name="foo.bar.uudns.ConnexionHandling" />
+				</intent-filter>
+		</service>
 	</application>
 
 </manifest>

@@ -8,6 +8,9 @@
 ===============================================================================
 This is a client for uddns [https://github.com/fzg/uddns/]
 
+prereq:
+ android sdk
+ ivy
 building:
  ant debug
 

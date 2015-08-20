@@ -1,5 +1,7 @@
 package foo.bar.uddns;
 
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.app.Activity;
 import android.app.PendingIntent;
 import android.app.NotificationManager;
@@ -15,17 +17,25 @@ import foo.bar.uddns.ConnexionHandler;
 
 public class BootUpReceiver extends BroadcastReceiver {
 public static final int mId = 4242;
-
+SharedPreferences prefs;
 @Override
 public void onReceive(Context context, Intent intent) {
-	Intent i = new Intent(context, SettingsActivity.class);
-	i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-	context.startActivity(i);
-	ConnexionHandler.handleCon(context, intent);
-	bNot(context);
+	prefs = PreferenceManager.getDefaultSharedPreferences(context);
+	boolean xtmp = true;
+	if ( prefs.getBoolean("enable", xtmp) == true) {
+		Intent j = new Intent("foo.bar.uddns.ConnexionHandler");
+		context.startService(j);
+	}
+	// dirty but else we got no way to access em afterwards
+        Intent i = new Intent(context, SettingsActivity.class);
+        i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        context.startActivity(i);
+
+//	ConnexionHandler.handleCon(context, intent);
+//	bNot(context, intent);
 }
 
-private void bNot(Context c){
+private void bNot(Context c, Intent i){
 	NotificationCompat.Builder mBuilder =
         new NotificationCompat.Builder(c)
         .setSmallIcon(R.drawable.ud)

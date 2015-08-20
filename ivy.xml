@@ -1,0 +1,6 @@
+<ivy-module version="2.0">
+    <info organisation="foo.bar" module="uddns_android"/>
+    <dependencies>
+	<dependency org="com.loopj.android" name="android-async-http" rev="1.4.5" />
+    </dependencies>
+</ivy-module>
