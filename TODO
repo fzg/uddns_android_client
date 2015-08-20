@@ -1,0 +1,4 @@
+* Settings: 
+	set ip, port, user, password, name
+* Background activity:
+	on network change, perform update
