@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+	<PreferenceCategory 
+		android:title="@string/pref_serv_title"
+		android:key="pref_serv_settings">
+		<EditTextPreference
+			android:title="hostField"
+			android:key="host"
+			android:defaultValue="android_device"
+			android:inputType="text" />
+                <EditTextPreference
+                        android:title="serverField"
+                        android:key="server"
+                        android:defaultValue="foo.bar"
+                        android:inputType="textUri" />
+                <EditTextPreference
+                        android:title="portField"
+                        android:key="port"
+                        android:defaultValue="4443"
+                        android:inputType="number" />
+                <EditTextPreference
+                        android:title="userField"
+                        android:key="user"
+                        android:defaultValue="luser"
+                        android:inputType="text" />
+                <EditTextPreference
+                        android:title="passwordField"
+                        android:key="password"
+                        android:defaultValue="1234"
+                        android:inputType="textPassword" />
+		
+	</PreferenceCategory>
+</PreferenceScreen>

@@ -2,7 +2,11 @@ package foo.bar.uddns;
 
 import foo.bar.uddns.R;
 
+import android.view.View.BaseSavedState;
+import android.os.Parcelable;
+import android.os.Parcel;
 import android.app.Activity;
+import android.preference.PreferenceActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Spannable;
@@ -15,27 +19,17 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.EditText;
+import android.preference.EditTextPreference;
 
-public class SettingsActivity extends Activity {
-	private EditText server, port, user, password, host;
-	private Button applyButton;
+public class SettingsActivity extends PreferenceActivity {
+	public EditTextPreference server, port, user, password, host;
+//	private Button applyButton;
 	private static final int REQUEST_CODE = 0;
 
 	@Override
 	protected void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.settings_activity);
-		applyButton = (Button) findViewById(R.id.apply);
-		applyButton.setOnClickListener(new OnClickListener() {
-			public void onClick(final View v) {
-				handleApply();
-			}
-		});
-		server = (EditText) findViewById(R.id.server);
-		port = (EditText) findViewById(R.id.port);
-		user = (EditText) findViewById(R.id.user);
-		password = (EditText) findViewById(R.id.password);
-		host =  (EditText) findViewById(R.id.host);
+                addPreferencesFromResource(R.xml.preferences);
 	}
         @Override
         protected void onActivityResult(final int requestCode, final int resultCode, final Intent data) {
@@ -51,4 +45,5 @@ public class SettingsActivity extends Activity {
 	private void handleApply() {
 		;
 	}
+
 }
