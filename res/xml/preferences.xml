@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+	<PreferenceCategory 
+                android:title="@string/pref_host_title"
+                android:key="pref_host_settings">
+                <EditTextPreference
+                        android:title="Host"
+                        android:key="host"
+                        android:defaultValue="android_device"
+                        android:inputType="text" />
+		<CheckBoxPreference
+			android:title="Enable"
+			android:summary="Sets on or off the publishing"
+			android:key="enable"
+			android:defaultValue="false" />
+	</PreferenceCategory>
+	<PreferenceCategory 
+		android:title="@string/pref_serv_title"
+		android:key="pref_serv_settings">
+                <EditTextPreference
+                        android:title="UDDNS Server"
+                        android:key="server"
+                        android:defaultValue="foo.bar"
+                        android:inputType="textUri" />
+                <EditTextPreference
+                        android:title="UDDNS Port"
+                        android:key="port"
+                        android:defaultValue="4443"
+                        android:inputType="number" />
+                <EditTextPreference
+                        android:title="User Name"
+                        android:key="user"
+                        android:defaultValue="luser"
+                        android:inputType="text" />
+                <EditTextPreference
+                        android:title="Password"
+                        android:key="password"
+                        android:defaultValue="1234"
+                        android:inputType="textPassword" />
+		
+	</PreferenceCategory>
+</PreferenceScreen>

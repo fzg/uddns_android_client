@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+	package="foo.bar.uddns"
+	android:versionCode="1"
+	android:versionName="1.0" >
+
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+	<uses-permission android:name="android.permission.INTERNET"/> 
+	<uses-sdk android:minSdkVersion="10" />
+
+	<uses-library android:name="com.loopj.android.android-async-http"
+		android:required="true" />
+
+	<uses-feature
+		android:name="android.hardware.touchscreen"
+		android:required="false" />
+
+	<supports-screens
+		android:anyDensity="true"
+		android:largeScreens="true"
+		android:normalScreens="true"
+		android:smallScreens="true" />
+
+	<application android:label="uddns" 
+		android:icon="@drawable/ud">
+		<activity
+			android:name="foo.bar.uddns.SettingsActivity">
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN" />
+				<category android:name="android.intent.category.LAUNCHER" />
+			</intent-filter>
+		</activity>
+		<activity
+			android:name="foo.bar.uddns.BackgroundActivity">
+			        <intent-filter>
+					<action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+				</intent-filter>
+		</activity>
+		<receiver android:enabled="true"
+			android:name=".BootUpReceiver">
+                                <intent-filter>
+                                        <action android:name="android.intent.action.BOOT_COMPLETED"/>
+					<category android:name="android.intent.category.DEFAULT" />
+                                </intent-filter>
+		</receiver>
+		<service android:name="foo.bar.uddns.ConnexionHandler" android:enabled="true">
+				<intent-filter>
+					<action android:name="foo.bar.uudns.ConnexionHandling" />
+				</intent-filter>
+		</service>
+	</application>
+
+</manifest>
