@@ -11,7 +11,7 @@
             android:title="@string/host" />
         <CheckBoxPreference
             android:defaultValue="false"
-            android:key="@string/enable"
+            android:key="enable"
             android:summary="@string/enableSummary"
             android:title="@string/enable" />
     </PreferenceCategory>

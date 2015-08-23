@@ -21,6 +21,7 @@ public class SettingsActivity extends PreferenceActivity {
                     Log.w(TAG, "PREFERENCE CHANGED: "+key);
                     Intent intent = new Intent(getApplication(), foo.bar.uddns.ConnexionHandler.class);
                     if (key.equals("enable")) {
+                        Log.w(TAG,"TROLOLOLO");
                         if (!sharedPreferences.getBoolean("enable", false)) {
                             stopService(intent);
                         } else {
