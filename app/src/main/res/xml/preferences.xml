@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+        android:key="pref_host_settings"
+        android:title="@string/pref_host_title">
+        <EditTextPreference
+            android:defaultValue="android_device"
+            android:inputType="text"
+            android:key="@string/host"
+            android:summary="@string/hostSummary"
+            android:title="@string/host" />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="@string/enable"
+            android:summary="@string/enableSummary"
+            android:title="@string/enable" />
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:key="pref_serv_settings"
+        android:title="@string/pref_serv_title">
+        <EditTextPreference
+            android:defaultValue="foo.bar"
+            android:inputType="textUri"
+            android:key="@string/server"
+            android:summary="@string/serverSummary"
+            android:title="@string/server" />
+        <EditTextPreference
+            android:defaultValue="4443"
+            android:inputType="number"
+            android:key="@string/port"
+            android:summary="@string/portSummary"
+            android:title="@string/port" />
+        <Preference
+            android:key="@string/getCert"
+            android:summary="@string/getCertSummary"
+            android:title="@string/getCert" />
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:key="pref_client_settings"
+        android:title="@string/pref_client_settings">
+        <EditTextPreference
+            android:defaultValue="luser"
+            android:inputType="text"
+            android:key="@string/user"
+            android:summary="@string/usernameSummary"
+            android:title="@string/user" />
+        <EditTextPreference
+            android:defaultValue="1234"
+            android:inputType="textPassword"
+            android:key="@string/password"
+            android:summary="@string/passSummary"
+            android:title="@string/password" />
+</PreferenceCategory>
+</PreferenceScreen>

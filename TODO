@@ -1,0 +1,20 @@
+* Settings: 
+	set ip, port, user, password, name
+* Background activity:
+	on network change, perform update
+
+
+[optionality.level=1]
+ We'd need a main activity with a short description,
+ a link to the github of the server, 
+ [optionality.level=2]
+  a tick box to enable/disable
+ [/optionality]
+[optionality]
+
+
+CURRENTLY:
+It seems that the bootupreceiver runs (since settings are shown) <- double check it tho ;)
+BUT
+It seems the backgroundactivity should morph into a service
+
