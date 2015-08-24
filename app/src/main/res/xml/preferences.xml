@@ -6,7 +6,7 @@
         <EditTextPreference
             android:defaultValue="android_device"
             android:inputType="text"
-            android:key="@string/host"
+            android:key="host"
             android:summary="@string/hostSummary"
             android:title="@string/host" />
         <CheckBoxPreference
@@ -21,17 +21,17 @@
         <EditTextPreference
             android:defaultValue="foo.bar"
             android:inputType="textUri"
-            android:key="@string/server"
+            android:key="server"
             android:summary="@string/serverSummary"
             android:title="@string/server" />
         <EditTextPreference
             android:defaultValue="4443"
             android:inputType="number"
-            android:key="@string/port"
+            android:key="port"
             android:summary="@string/portSummary"
             android:title="@string/port" />
         <Preference
-            android:key="@string/getCert"
+            android:key="getCert"
             android:summary="@string/getCertSummary"
             android:title="@string/getCert" />
     </PreferenceCategory>
@@ -41,13 +41,13 @@
         <EditTextPreference
             android:defaultValue="luser"
             android:inputType="text"
-            android:key="@string/user"
+            android:key="user"
             android:summary="@string/usernameSummary"
             android:title="@string/user" />
         <EditTextPreference
             android:defaultValue="1234"
             android:inputType="textPassword"
-            android:key="@string/password"
+            android:key="password"
             android:summary="@string/passSummary"
             android:title="@string/password" />
 </PreferenceCategory>

@@ -34,19 +34,13 @@ public class SettingsActivity extends PreferenceActivity {
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
-                 StrictMode.setVmPolicy(new StrictMode.VmPolicy.Builder()
-                         .detectLeakedSqlLiteObjects()
-                         .penaltyLog()
-                         .penaltyDeath()
-                         .build());
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         Preference button;
 
         addPreferencesFromResource(R.xml.preferences);
         prefs.registerOnSharedPreferenceChangeListener(spChanged);
-        button = findPreference(getString(R.string.getCert));
+        button = findPreference("enable");
         button.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
             @Override
             public boolean onPreferenceClick(Preference preference) {
